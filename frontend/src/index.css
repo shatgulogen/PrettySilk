@@ -17,3 +17,18 @@ header a{
   font-weight: bold;
   text-decoration: none;
 }
+
+.products{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.product{
+  /* border: 1px grey solid; */
+  margin: 1rem;
+}
+
+.product img{
+  width: 100%;
+  max-width: 400px;
+}
