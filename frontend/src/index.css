@@ -18,17 +18,30 @@ header a{
   text-decoration: none;
 }
 
+main{
+  padding: 1rem;
+
+}
+
 .products{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .product{
-  /* border: 1px grey solid; */
   margin: 1rem;
+  padding: 10px;
+  float: left;
+  border: 1px pink solid;
 }
 
 .product img{
-  width: 100%;
-  max-width: 400px;
+  max-width: 300px;
+  padding: 10px;
+  float: left;
+}
+
+.product-info{
+  padding: 1rem;
 }
