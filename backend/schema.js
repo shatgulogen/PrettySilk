@@ -1,4 +1,4 @@
-db.data.insertMany([
+db.products.insertMany([
     {
         name: 'Eloise',
         slug: 'Eloise-scarf',

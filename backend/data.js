@@ -1,5 +1,5 @@
-const data = {
-    products: [
+const products = {
+    allproducts: [
         {
             name: 'Eloise',
             slug: 'Eloise-scarf',
@@ -55,4 +55,4 @@ const data = {
     ],
 };
 
-export default data;
+export default products;
