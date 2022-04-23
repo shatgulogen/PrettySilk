@@ -2,7 +2,7 @@ const data = {
     products: [
         {
             name: 'Eloise',
-            slug: 'Eloise',
+            slug: 'Eloise-scarf',
             category: 'Scarfs',
             image: '/images/1.jpg',
             price: 59,
@@ -15,7 +15,7 @@ const data = {
         },
         {
             name: 'Alize',
-            slug: 'Alize',
+            slug: 'Alize-scarf',
             category: 'Scarfs',
             image: '/images/2.jpg',
             price: 55,
@@ -28,7 +28,7 @@ const data = {
         },
         {
             name: 'Amélie',
-            slug: 'Amélie',
+            slug: 'Amélie-scarf',
             category: 'Scarfs',
             image: '/images/4.jpg',
             price: 49,
@@ -41,7 +41,7 @@ const data = {
         },
         {
             name: 'Elania',
-            slug: 'Elania',
+            slug: 'Elania-scarf',
             category: 'Scarfs',
             image: '/images/3.jpg',
             price: 59,
