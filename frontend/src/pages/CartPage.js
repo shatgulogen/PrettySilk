@@ -17,13 +17,16 @@ export default function CartPage() {
     } = state;
 
     const updateCartHandler = async (item, quantity) => {
-        const { data } = await axios.get(`/api/products/${item._id}`);
-        if (data.inventoryCount < quantity) {
-            window.alert(
-                'We are trully sorry. This scarf was the best-selling item in our store and it sold out at the moment. Please check back in a week or check out your other options.'
-            );
-            return;
-        }
+        const currentData = axios
+            .get(`/api/products/${item._id}`)
+            .then((quantity) => {
+                if (currentData.inventoryCount < quantity) {
+                    window.alert(
+                        'We are trully sorry. This scarf was the best-selling item in our store and it sold out at the moment. Please check back in a week or check out your other options.'
+                    );
+                    return;
+                }
+            });
         contextDispatch({
             type: 'CART_ADD_ITEM',
             payload: { ...item, quantity },
@@ -72,13 +75,13 @@ export default function CartPage() {
                                         </Button>{' '}
                                         <span>{item.quantity}</span>{' '}
                                         <Button
-                                            variant="light"
                                             onClick={() =>
                                                 updateCartHandler(
                                                     item,
                                                     item.quantity + 1
                                                 )
                                             }
+                                            variant="light"
                                             disabled={
                                                 item.quantity ===
                                                 item.inventoryCount
