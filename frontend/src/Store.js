@@ -10,13 +10,16 @@ const initialStateObject = {
 function reducer(state, action) {
     switch (action.type) {
         case 'CART_ADD_ITEM':
-            return {
-                ...state,
-                cart: {
-                    ...state.cart,
-                    cartItems: [...state.cart.cartItems, action.payload],
-                },
-            };
+            const newItem = action.payload;
+            const itemAlreadyExist = state.cart.cartItems.find(
+                (item) => item._id === newItem._id
+            );
+            const cartItems = itemAlreadyExist
+                ? state.cart.cartItems.map((item) =>
+                      item._id === itemAlreadyExist._id ? newItem : item
+                  )
+                : [...state.cart.cartItems, newItem];
+            return { ...state, cart: { ...state.cart, cartItems } };
         default:
             return state;
     }

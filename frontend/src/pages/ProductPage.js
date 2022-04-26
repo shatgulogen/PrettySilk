@@ -25,10 +25,22 @@ function ProductPage() {
         fetchData();
     }, [slug]);
     const { state, dispatch: contextDispatch } = useContext(Store);
-    const addToCartHelper = () => {
+    const { cart } = state;
+    const addToCartHelper = async () => {
+        const itemAlreadyExist = cart.cartItems.find(
+            (x) => x._id === product._id
+        );
+        const quantity = itemAlreadyExist ? itemAlreadyExist.quantity + 1 : 1;
+        const { data } = await axios.get(`/api/product/${product._id}`);
+        if (data.inventoryCount < quantity) {
+            window.alert(
+                'We are trully sorry. This scarf was the best-selling item in our store and it sold out at the moment. Please check back in a week or check out your other options.'
+            );
+            return;
+        }
         contextDispatch({
             type: 'CART_ADD_ITEM',
-            payload: { ...product, quantity: 1 },
+            payload: { ...product, quantity },
         });
     };
     return (

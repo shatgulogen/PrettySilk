@@ -37,6 +37,17 @@ app.get('/api/products/slug/:slug', (req, res) => {
             }
         });
 });
+app.get('/api/products/:id', (req, res) => {
+    db.collection('data')
+        .findOne({ _id: req.params.id })
+        .then((product) => {
+            if (product) {
+                res.send(product);
+            } else {
+                res.status(404).send({ message: 'Product not found' });
+            }
+        });
+});
 
 app.post('/api/products', (req, res) => {
     const singleData = {
