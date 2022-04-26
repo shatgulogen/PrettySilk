@@ -37,7 +37,7 @@ app.get('/api/products/slug/:slug', (req, res) => {
             }
         });
 });
-app.get('/api/products/:id', (req, res) => {
+app.get('/api/product/:id', (req, res) => {
     db.collection('data')
         .findOne({ _id: req.params.id })
         .then((product) => {

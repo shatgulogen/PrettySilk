@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
@@ -12,6 +12,7 @@ import { Helmet } from 'react-helmet-async';
 import { Store } from '../Store';
 
 function ProductPage() {
+    const navigate = useNavigate();
     const [product, setProducts] = useState([]);
     const params = useParams();
     const { slug } = params;
@@ -26,6 +27,7 @@ function ProductPage() {
     }, [slug]);
     const { state, dispatch: contextDispatch } = useContext(Store);
     const { cart } = state;
+
     const addToCartHelper = async () => {
         const itemAlreadyExist = cart.cartItems.find(
             (x) => x._id === product._id
@@ -42,6 +44,7 @@ function ProductPage() {
             type: 'CART_ADD_ITEM',
             payload: { ...product, quantity },
         });
+        navigate('/cart');
     };
     return (
         <div>

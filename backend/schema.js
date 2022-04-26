@@ -1,5 +1,6 @@
 db.products.insertMany([
     {
+        _id: 1,
         name: 'Eloise',
         slug: 'Eloise-scarf',
         category: 'Scarfs',
@@ -10,22 +11,24 @@ db.products.insertMany([
         rating: 4.5,
         numReviews: 10,
         description:
-            'Elegant floral soft cream 100% silk scarf with a measurement of 185cm * 15cm',
+            'Elegant floral soft white and black 100% silk scarf with a measurement of 185cm * 15cm',
     },
     {
+        _id: 2,
         name: 'Alize',
         slug: 'Alize-scarf',
         category: 'Scarfs',
         image: '/images/2.jpg',
         price: 55,
-        inventoryCount: 10,
+        inventoryCount: 0,
         brand: 'PrettySilk',
         rating: 4.7,
         numReviews: 18,
         description:
-            'Elegant floral grey tones 100% silk scarf with a measurement of 185cm * 15cm',
+            'Elegant floral grey and black tones 100% silk scarf with a measurement of 185cm * 15cm',
     },
     {
+        _id: 3,
         name: 'Amélie',
         slug: 'Amélie-scarf',
         category: 'Scarfs',
@@ -36,9 +39,10 @@ db.products.insertMany([
         rating: 5,
         numReviews: 10,
         description:
-            'Elegant soft pink 100% silk scarf with a measurement of 50cm * 50cm',
+            'Elegant soft blue and cream 100% silk scarf with a measurement of 50cm * 50cm',
     },
     {
+        _id: '4',
         name: 'Elania',
         slug: 'Elania-scarf',
         category: 'Scarfs',
@@ -49,6 +53,6 @@ db.products.insertMany([
         rating: 4.9,
         numReviews: 12,
         description:
-            'Elegant floral soft blues 100% silk scarf with a measurement of 185cm * 15cm',
+            'Elegant floral soft pink and grey 100% silk scarf with a measurement of 185cm * 15cm',
     },
 ]);
