@@ -28,21 +28,24 @@ function ProductPage() {
     const { state, dispatch: contextDispatch } = useContext(Store);
     const { cart } = state;
 
-    const addToCartHelper = async () => {
+    const addToCartHelper = async (product, result) => {
         const itemAlreadyExist = cart.cartItems.find(
             (x) => x._id === product._id
         );
         const quantity = itemAlreadyExist ? itemAlreadyExist.quantity + 1 : 1;
-        const { data } = await axios.get(`/api/product/${product._id}`);
-        if (data.inventoryCount < quantity) {
-            window.alert(
-                'We are trully sorry. This scarf was the best-selling item in our store and it sold out at the moment. Please check back in a week or check out your other options.'
-            );
-            return;
-        }
+        const currentProduct = axios
+            .get(`/api/product/${product._id}`)
+            .then((result) => {
+                if (currentProduct.inventoryCount < quantity) {
+                    window.alert(
+                        'We are trully sorry. This scarf was the best-selling item in our store and it sold out at the moment. Please check back in a week or check out your other options.'
+                    );
+                    return;
+                }
+            });
         contextDispatch({
             type: 'CART_ADD_ITEM',
-            payload: { ...product, quantity },
+            payload: { ...product, result },
         });
         navigate('/cart');
     };
