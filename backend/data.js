@@ -1,5 +1,5 @@
-const products = {
-    allproducts: [
+const data = {
+    products: [
         {
             name: 'Eloise',
             slug: 'Eloise-scarf',
@@ -19,7 +19,7 @@ const products = {
             category: 'Scarfs',
             image: '/images/2.jpg',
             price: 55,
-            inventoryCount: 10,
+            inventoryCount: 0,
             brand: 'PrettySilk',
             rating: 4.7,
             numReviews: 18,

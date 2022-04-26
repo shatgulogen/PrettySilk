@@ -20,13 +20,15 @@ function App() {
                 </header>
                 <main>
                     <Container>
-                        <Routes>
-                            <Route
-                                path="/product/:slug"
-                                element={<ProductPage />}
-                            />
-                            <Route path="/" element={<HomePage />} />
-                        </Routes>
+                        <Container className="mt-5">
+                            <Routes>
+                                <Route
+                                    path="/product/:slug"
+                                    element={<ProductPage />}
+                                />
+                                <Route path="/" element={<HomePage />} />
+                            </Routes>
+                        </Container>
                     </Container>
                 </main>
                 <footer>
