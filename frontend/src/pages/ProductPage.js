@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -9,6 +9,7 @@ import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import Rating from '../components/Rating';
 import { Helmet } from 'react-helmet-async';
+import { Store } from '../Store';
 
 function ProductPage() {
     const [product, setProducts] = useState([]);
@@ -23,6 +24,13 @@ function ProductPage() {
         };
         fetchData();
     }, [slug]);
+    const { state, dispatch: contextDispatch } = useContext(Store);
+    const addToCartHelper = () => {
+        contextDispatch({
+            type: 'CART_ADD_ITEM',
+            payload: { ...product, quantity: 1 },
+        });
+    };
     return (
         <div>
             <h1>{slug}</h1>
@@ -85,7 +93,9 @@ function ProductPage() {
                                 {product.inventoryCount > 0 && (
                                     <ListGroup.Item>
                                         <div className="d-grid">
-                                            <Button variant="primary">
+                                            <Button
+                                                onClick={addToCartHelper}
+                                                variant="primary">
                                                 Add to Cart
                                             </Button>
                                         </div>
