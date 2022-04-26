@@ -6,13 +6,37 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 export default function CartPage() {
+    const navigate = useNavigate();
     const { state, dispatch: contextDispatch } = useContext(Store);
     const {
         cart: { cartItems },
     } = state;
+
+    const updateCartHandler = async (item, quantity) => {
+        const { data } = await axios.get(`/api/products/${item._id}`);
+        if (data.inventoryCount < quantity) {
+            window.alert(
+                'We are trully sorry. This scarf was the best-selling item in our store and it sold out at the moment. Please check back in a week or check out your other options.'
+            );
+            return;
+        }
+        contextDispatch({
+            type: 'CART_ADD_ITEM',
+            payload: { ...item, quantity },
+        });
+    };
+    const removeItemHandler = (item) => {
+        contextDispatch({ type: 'CART_REMOVE_ITEM', payload: item });
+    };
+
+    const checkoutHandler = () => {
+        navigate('/signin?redirect=/shipping');
+    };
+
     return (
         <div>
             <Helmet>
@@ -36,6 +60,12 @@ export default function CartPage() {
                                     </Col>
                                     <Col md={3}>
                                         <Button
+                                            onClick={() =>
+                                                updateCartHandler(
+                                                    item,
+                                                    item.quantity - 1
+                                                )
+                                            }
                                             variant="light"
                                             disabled={item.quantity === 1}>
                                             <i className="fas fa-minus-circle"></i>
@@ -43,6 +73,12 @@ export default function CartPage() {
                                         <span>{item.quantity}</span>{' '}
                                         <Button
                                             variant="light"
+                                            onClick={() =>
+                                                updateCartHandler(
+                                                    item,
+                                                    item.quantity + 1
+                                                )
+                                            }
                                             disabled={
                                                 item.quantity ===
                                                 item.inventoryCount
@@ -52,7 +88,11 @@ export default function CartPage() {
                                     </Col>
                                     <Col md={3}>{item.price}</Col>
                                     <Col md={2}>
-                                        <Button variant="light">
+                                        <Button
+                                            onClick={() =>
+                                                removeItemHandler(item)
+                                            }
+                                            variant="light">
                                             <i className="fas fa-trash"></i>
                                         </Button>
                                     </Col>
@@ -65,6 +105,7 @@ export default function CartPage() {
                     <Card>
                         <Card.Body>
                             <ListGroup variant="flush">
+                                {/* flush gets rid of the border around it */}
                                 <ListGroup.Item>
                                     <h3>
                                         Subtotal (
@@ -88,6 +129,7 @@ export default function CartPage() {
                                         <Button
                                             type="button"
                                             variant="primary"
+                                            onClick={checkoutHandler}
                                             disabled={cartItems.length === 0}>
                                             Proceed to Checkout
                                         </Button>
