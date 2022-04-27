@@ -4,7 +4,8 @@ import cors from 'cors';
 import { default as mongodb } from 'mongodb';
 let MongoClient = mongodb.MongoClient;
 import dotenv from 'dotenv';
-import path from 'path';
+import mongoose from 'mongoose';
+
 if (process.env.NODE_ENV !== 'production') {
     dotenv.config();
 }
@@ -13,6 +14,14 @@ app.use(cors());
 
 const uri = process.env.MONGO_URI;
 const secret = process.env.SECRET;
+mongoose
+    .connect(uri)
+    .then(() => {
+        console.log('connected to db');
+    })
+    .catch((err) => {
+        console.log(err.message);
+    });
 
 const client = new MongoClient(uri);
 let db = null;
