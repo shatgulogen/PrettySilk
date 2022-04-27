@@ -1,7 +1,7 @@
 const data = {
     products: [
         {
-            _id: '6263b004eae541994caabc14',
+            _id: '1',
             name: 'Eloise',
             slug: 'Eloise-scarf',
             category: 'Scarfs',
@@ -15,7 +15,7 @@ const data = {
                 'Elegant floral soft white and black 100% silk scarf with a measurement of 185cm * 15cm',
         },
         {
-            _id: '6263b004eae541994caabc15',
+            _id: '2',
             name: 'Alize',
             slug: 'Alize-scarf',
             category: 'Scarfs',
@@ -29,7 +29,7 @@ const data = {
                 'Elegant floral grey and black tones 100% silk scarf with a measurement of 185cm * 15cm',
         },
         {
-            _id: '6263b004eae541994caabc16',
+            _id: '3',
             name: 'Amélie',
             slug: 'Amélie-scarf',
             category: 'Scarfs',
@@ -43,7 +43,7 @@ const data = {
                 'Elegant soft blue and cream 100% silk scarf with a measurement of 50cm * 50cm',
         },
         {
-            _id: '6263b004eae541994caabc17',
+            _id: '4',
             name: 'Elania',
             slug: 'Elania-scarf',
             category: 'Scarfs',

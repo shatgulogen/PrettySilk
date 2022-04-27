@@ -3,10 +3,16 @@ const app = express();
 import cors from 'cors';
 import { default as mongodb } from 'mongodb';
 let MongoClient = mongodb.MongoClient;
+import dotenv from 'dotenv';
+if (process.env.NODE_ENV !== 'production') {
+    dotenv.config();
+}
 
 app.use(cors());
 
-const uri = 'mongodb://127.0.0.1:27017';
+const uri = process.env.MONGO_URI;
+const secret = process.env.SECRET;
+
 const client = new MongoClient(uri);
 let db = null;
 async function run() {
