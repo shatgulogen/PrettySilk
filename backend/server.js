@@ -5,6 +5,8 @@ import { default as mongodb } from 'mongodb';
 let MongoClient = mongodb.MongoClient;
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import mainRouter from './routes/mainRoutes.js';
+import productRouter from './routes/productRoutes.js';
 
 if (process.env.NODE_ENV !== 'production') {
     dotenv.config();
@@ -31,14 +33,10 @@ async function run() {
     console.log('Connected successfully to server');
 }
 run().catch(console.log);
-app.use(express.json());
 
-app.get('/api/products', (req, res) => {
-    const cursor = db.collection('data').find();
-    cursor.toArray().then((result) => {
-        res.json(result);
-    });
-});
+app.use('/api/main', mainRouter);
+app.use('/api/products', productRouter);
+
 app.get('/api/products/slug/:slug', (req, res) => {
     db.collection('data')
         .findOne({ slug: req.params.slug })

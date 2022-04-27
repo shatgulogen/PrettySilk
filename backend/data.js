@@ -1,19 +1,19 @@
-import bcrypt from 'bcrypt';
+// import bcrypt from 'bcrypt';
 const data = {
-    users: [
-        {
-            name: 'Emily',
-            email: 'admin@test.com',
-            password: bcrypt.hashSync('HelloEmily'),
-            isAdmin: true,
-        },
-        {
-            name: 'Oreo',
-            email: 'user@test.com',
-            password: bcrypt.hashSync('HelloOreo'),
-            isAdmin: false,
-        },
-    ],
+    // users: [
+    //     {
+    //         name: 'Emily',
+    //         email: 'admin@test.com',
+    //         password: bcrypt.hashSync('HelloEmily'),
+    //         isAdmin: true,
+    //     },
+    //     {
+    //         name: 'Oreo',
+    //         email: 'user@test.com',
+    //         password: bcrypt.hashSync('HelloOreo'),
+    //         isAdmin: false,
+    //     },
+    // ],
     products: [
         {
             name: 'Eloise',
@@ -70,4 +70,4 @@ const data = {
     ],
 };
 
-export default products;
+export default data;
