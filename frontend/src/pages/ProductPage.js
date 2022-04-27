@@ -18,9 +18,7 @@ function ProductPage() {
     const { slug } = params;
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios.get(
-                `http://localhost:5000/api/products/slug/${slug}`
-            );
+            const result = await axios.get(`/api/products/slug/${slug}`);
             setProducts(result.data);
         };
         fetchData();
@@ -34,7 +32,7 @@ function ProductPage() {
         );
         const quantity = itemAlreadyExist ? itemAlreadyExist.quantity + 1 : 1;
         const currentProduct = axios
-            .get(`http://localhost:5000/api/products/${product._id}`)
+            .get(`/api/products/${product._id}`)
             .then(() => {
                 if (currentProduct.inventoryCount < quantity) {
                     window.alert(

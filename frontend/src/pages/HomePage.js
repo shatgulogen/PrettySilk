@@ -9,9 +9,7 @@ function HomePage() {
     const [products, setProducts] = useState([]);
     useEffect(() => {
         const getData = async () => {
-            const result = await axios.get(
-                'http://localhost:5000/api/products'
-            );
+            const result = await axios.get('/api/products');
             setProducts(result.data);
         };
         getData();
