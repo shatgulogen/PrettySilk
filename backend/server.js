@@ -15,9 +15,6 @@ async function run() {
     console.log('Connected successfully to server');
 }
 run().catch(console.log);
-
-const port = process.env.PORT || 5000;
-
 app.use(express.json());
 
 app.get('/api/products', (req, res) => {
@@ -71,6 +68,7 @@ app.post('/api/products', (req, res) => {
         });
 });
 
+const port = process.env.PORT || 5000;
 app.listen(port, () => {
     console.log(`serve at http://localhost:${port}`);
 });
