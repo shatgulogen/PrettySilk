@@ -4,6 +4,7 @@ import cors from 'cors';
 import { default as mongodb } from 'mongodb';
 let MongoClient = mongodb.MongoClient;
 import dotenv from 'dotenv';
+import path from 'path';
 if (process.env.NODE_ENV !== 'production') {
     dotenv.config();
 }
