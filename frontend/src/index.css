@@ -12,10 +12,14 @@ body {
 main{
   flex: 1;
 }
-.btn-primary{
-  background-color: lightpink;
+.card-title {
   color: black;
 }
+.btn-primary{
+  background-color: rgb(232, 24, 59);
+  color: rgb(252, 249, 249);
+}
+
 
 .products{
   display: flex;
@@ -23,14 +27,14 @@ main{
   justify-content: center;
 }
 .rating span{
-  color: pink;
+  color: rgb(232, 24, 59);
 }
 
 .product{
   margin: 1rem;
   padding: 10px;
   float: left;
-  border: 1px pink solid;
+  border: 1px rgb(0, 0, 0) solid;
 }
 
 .product img{
