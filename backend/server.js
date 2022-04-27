@@ -7,11 +7,14 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import mainRouter from './routes/mainRoutes.js';
 import productRouter from './routes/productRoutes.js';
+import userRouter from './routes/userRoutes.js';
 
 if (process.env.NODE_ENV !== 'production') {
     dotenv.config();
 }
-
+//Convert the form data in the post request a json object inside req.body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 const uri = process.env.MONGO_URI;
@@ -36,51 +39,32 @@ run().catch(console.log);
 
 app.use('/api/main', mainRouter);
 app.use('/api/products', productRouter);
-
-app.get('/api/products/slug/:slug', (req, res) => {
-    db.collection('data')
-        .findOne({ slug: req.params.slug })
-        .then((product) => {
-            if (product) {
-                res.send(product);
-            } else {
-                res.status(404).send({ message: 'Product not found' });
-            }
-        });
-});
-app.get('/api/product/:id', (req, res) => {
-    db.collection('data')
-        .findOne({ _id: req.params.id })
-        .then((product) => {
-            if (product) {
-                res.send(product);
-            } else {
-                res.status(404).send({ message: 'Product not found' });
-            }
-        });
+app.use('/api/users', userRouter);
+app.use((err, req, res, next) => {
+    res.status(500).send({ message: err.message });
 });
 
-app.post('/api/products', (req, res) => {
-    const singleData = {
-        name: req.body.name,
-        slug: req.body.slug,
-        category: req.body.category,
-        image: req.body.image,
-        price: req.body.price,
-        inventoryCount: req.body.inventoryCount,
-        brand: req.body.brand,
-        rating: req.body.rating,
-        numReviews: req.body.numReviews,
-        description: req.body.description,
-    };
+// app.post('/api/products', (req, res) => {
+//     const singleData = {
+//         name: req.body.name,
+//         slug: req.body.slug,
+//         category: req.body.category,
+//         image: req.body.image,
+//         price: req.body.price,
+//         inventoryCount: req.body.inventoryCount,
+//         brand: req.body.brand,
+//         rating: req.body.rating,
+//         numReviews: req.body.numReviews,
+//         description: req.body.description,
+//     };
 
-    db.collection('data')
-        .insertOne(singleData)
-        .then((result) => {
-            console.log(result);
-            res.json({ status: 'ok' });
-        });
-});
+//     db.collection('data')
+//         .insertOne(singleData)
+//         .then((result) => {
+//             console.log(result);
+//             res.json({ status: 'ok' });
+//         });
+// });
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('../frontend/build'));
