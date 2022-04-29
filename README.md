@@ -64,11 +64,11 @@ Sara loves it so much so that she decides to become an entrepreneur and begin he
 
 -   Product Page:
 
-![Product Page](ReadmeAssets/ProductPage.jpg)
+![Product Page](AssetsForReadme/ProductPage.jpg)
 
 -   Shopping Cart Summery:
 
-![Cart Summery Page](ReadmeAssets/CartSummery.jpg)
+![Cart Summery Page](AssetsForReadme/CartSummery.jpg)
 
 ---
 
@@ -91,4 +91,3 @@ Sara loves it so much so that she decides to become an entrepreneur and begin he
 -   Add multi-factor auth for enhanced security
 -   Add store analysis capabilities with graph visualizations
 -   Add multi-seller platform
--   Court check-in
