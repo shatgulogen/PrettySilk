@@ -80,7 +80,7 @@ Sara loves it so much so that she decides to become an entrepreneur and begin he
 -   Add customer order history page
 -   Create Search product page
 -   Add rate and review pages
--   Implement admin pages: list, edit, delete users;
+-   Implement admin pages: list, edit, delete users
 
 ## Long-Term
 
