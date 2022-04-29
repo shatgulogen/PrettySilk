@@ -72,7 +72,7 @@ function ProductPage() {
                                 numReviews={product.numReviews}></Rating>
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            Pirce : ${product.price}
+                            Price : ${product.price}
                         </ListGroup.Item>
                         <ListGroup.Item>
                             Description:

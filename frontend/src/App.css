@@ -21,12 +21,13 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(240, 176, 205);
+  color: red;
 }
 
 .App-link {
   color: #f4f4f4;
 }
+
 
 @keyframes App-logo-spin {
   from {
@@ -35,4 +36,7 @@
   to {
     transform: rotate(360deg);
   }
+}
+.navbar{
+  color:red;
 }

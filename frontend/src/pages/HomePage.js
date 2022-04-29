@@ -17,7 +17,7 @@ function HomePage() {
     return (
         <div>
             <Helmet>
-                <title>PrettySilk</title>
+                <title>Pretty Silk</title>
             </Helmet>
             <h1>Featured Products</h1>
             <div className="products">

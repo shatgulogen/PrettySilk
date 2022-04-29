@@ -24,14 +24,14 @@ function App() {
         <BrowserRouter>
             <div className="d-flex flex-column site-container">
                 <header>
-                    <Navbar bg="dark" variant="pink">
+                    <Navbar className="nav-bar" bg="dark" variant="pink">
                         <Container>
                             <LinkContainer to="/">
-                                <Navbar.Brand>PrettySilk</Navbar.Brand>
+                                <Navbar.Brand>Pretty Silk</Navbar.Brand>
                             </LinkContainer>
                             <Nav className="me-auto">
                                 <Link to="/cart" className="nav-link">
-                                    Cart
+                                    My Cart
                                     {cart.cartItems.length > 0 && (
                                         <Badge pill bg="ahooh">
                                             {cart.cartItems.reduce(
