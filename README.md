@@ -5,7 +5,7 @@
 ![Landing Page](AssetsForReadme/HomePage.jpg)
 
 E-commerce site for purchasing and selling feminine, elegant and stylish products that are made from 100% pure silk.
-This is a ongoing project that will be build into a e-commerce site which will include 10 main features
+This is a ongoing project that will be build into an e-commerce site which will include 10 main features
 
 Main features:
 
