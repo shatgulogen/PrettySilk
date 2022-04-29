@@ -8,11 +8,11 @@ const userRouter = express.Router();
 
 userRouter.post(
     '/signin',
-    //we can catch error by using expressAsyncHandler
+    //Catching any error by using expressAsyncHandler in server.js
     expressAsyncHandler(async (req, res) => {
         const user = await User.findOne({ email: req.body.email });
         if (user) {
-            //here we need to compare the user input password with the bcrypted password in the database
+            //Comparing the user input password with the bcrypted password in the database
             if (bcrypt.compareSync(req.body.password, user.password)) {
                 res.send({
                     _id: user._id,
