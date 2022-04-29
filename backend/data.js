@@ -67,6 +67,58 @@ const data = {
             description:
                 'Elegant floral soft pink and grey 100% silk scarf with a measurement of 185cm * 15cm',
         },
+        {
+            name: 'Audrey',
+            slug: 'Audrey-scarf',
+            category: 'Scarfs',
+            image: '/images/5.jpg',
+            price: 49,
+            inventoryCount: 20,
+            brand: 'PrettySilk',
+            rating: 5.0,
+            numReviews: 7,
+            description:
+                'Elegant bright orange luxury 100% silk scarf with a measurement of 185cm * 15cm',
+        },
+        {
+            name: 'Isabelle',
+            slug: 'Isabelle-scarf',
+            category: 'Scarfs',
+            image: '/images/6.jpg',
+            price: 63,
+            inventoryCount: 5,
+            brand: 'PrettySilk',
+            rating: 4.8,
+            numReviews: 17,
+            description:
+                'Elegant soft blue, pink and white tone 100% silk scarf with a measurement of 185cm * 15cm',
+        },
+        {
+            name: 'Juliette',
+            slug: 'Juliette-scarf',
+            category: 'Scarfs',
+            image: '/images/7.jpg',
+            price: 71,
+            inventoryCount: 8,
+            brand: 'PrettySilk',
+            rating: 4.9,
+            numReviews: 123,
+            description:
+                'Elegant yellow tone 100% silk scarf with a measurement of 185cm * 15cm',
+        },
+        {
+            name: 'Vivienne',
+            slug: 'Vivienne-scarf',
+            category: 'Scarfs',
+            image: '/images/8.jpg',
+            price: 63,
+            inventoryCount: 25,
+            brand: 'PrettySilk',
+            rating: 5.0,
+            numReviews: 24,
+            description:
+                'Elegant brown tone polkadot 100% silk scarf with a measurement of 185cm * 15cm',
+        },
     ],
 };
 

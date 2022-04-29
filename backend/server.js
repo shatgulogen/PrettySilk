@@ -44,28 +44,6 @@ app.use((err, req, res, next) => {
     res.status(500).send({ message: err.message });
 });
 
-// app.post('/api/products', (req, res) => {
-//     const singleData = {
-//         name: req.body.name,
-//         slug: req.body.slug,
-//         category: req.body.category,
-//         image: req.body.image,
-//         price: req.body.price,
-//         inventoryCount: req.body.inventoryCount,
-//         brand: req.body.brand,
-//         rating: req.body.rating,
-//         numReviews: req.body.numReviews,
-//         description: req.body.description,
-//     };
-
-//     db.collection('data')
-//         .insertOne(singleData)
-//         .then((result) => {
-//             console.log(result);
-//             res.json({ status: 'ok' });
-//         });
-// });
-
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('../frontend/build'));
 
